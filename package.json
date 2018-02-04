@@ -1,0 +1,20 @@
+{
+  "name": "@wildpeaks/proto-constantsize",
+  "version": "1.0.0",
+  "description": "PROTO ConstantSize",
+  "main": "src/proto.ConstantSize.wrl",
+  "files": [
+    "src/proto.ConstantSize.wrl"
+  ],
+  "repository": "https://github.com/wildpeaks/proto-constantsize",
+  "keywords": [
+    "wildpeaks",
+    "vrml"
+  ],
+  "author": "Cecile Muller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wildpeaks/proto-constantsize/issues"
+  },
+  "homepage": "https://github.com/wildpeaks/proto-constantsize#readme"
+}

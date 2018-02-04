@@ -1,0 +1,40 @@
+#VRML V2.0 utf8
+
+PROTO ConstantSize [
+	exposedField  SFVec3f  translation  0 0 0
+	exposedField  SFVec3f  scaleFactor  1 1 1
+	eventOut      SFVec3f  scale
+]{
+	Script {
+		exposedField  SFVec3f  translation        IS translation
+		exposedField  SFVec3f  scaleFactor        IS scaleFactor
+		exposedField  SFVec3f  viewpointPosition  0 0 0
+		eventOut      SFVec3f  scale              IS scale
+
+		directOutput TRUE
+		url "javascript:
+
+		function refresh(){
+			var distance = viewpointPosition.subtract(translation).length();
+			scale = scaleFactor.multiply(distance);
+		}
+
+		function translation(){}
+		function scaleFactor(){}
+		function viewpointPosition(){}
+		function eventsProcessed(){
+			refresh();
+		}
+
+		function initialize(){
+			viewpointPosition = Browser.viewpointPosition;
+			refresh();
+			Browser.addRoute_in_logoScene(Browser, 'viewpointPosition', Browser.getScript(), 'viewpointPosition', 'UI');
+		}
+		function shutdown(){
+			Browser.deleteRoute_from_logoScene(Browser, 'viewpointPosition', Browser.getScript(), 'viewpointPosition', 'UI');
+		}
+
+		"
+	}
+}
